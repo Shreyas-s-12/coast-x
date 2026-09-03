@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+
+# Environment & Configs
+.env
+.env.local
+
+# Large Datasets (Images & Labels)
+data/train/
+data/valid/
+data/test/
+datasets/
+
+# Project Outputs & Logs
+outputs/
+runs/
+*.log
+*.mp4
+.DS_Store

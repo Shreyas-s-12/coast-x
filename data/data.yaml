@@ -1,0 +1,10 @@
+names:
+  0: boat
+  1: buoy
+  2: sinker
+  3: swimmer
+  4: trash
+path: C:\CoastX\data
+test: test/images
+train: train/images
+val: valid/images
