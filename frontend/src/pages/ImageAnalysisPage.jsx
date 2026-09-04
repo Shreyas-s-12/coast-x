@@ -219,26 +219,26 @@ export default function ImageAnalysisPage() {
           </div>
 
           {/* ANNOTATED IMAGE & COASTAL RISK PANEL */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+          <div className="analysis-results-grid">
             
-            {/* ANNOTATED DETECTION IMAGE */}
-            <div>
+            {/* ANNOTATED DETECTION IMAGE — MAIN DETECTION VIEW (68% Width) */}
+            <div style={{ minWidth: 0 }}>
               <h3 style={{ fontSize: '1.05rem', fontFamily: 'var(--font-heading)', color: 'var(--text-navy)', fontWeight: 800, marginBottom: '12px' }}>
                 ANNOTATED IMAGE
               </h3>
               <DetectionView data={analysisResult} />
             </div>
 
-            {/* SIDE PANEL: RISK & ALERTS */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {/* SIDE PANEL: RISK & ALERTS — SECONDARY ANALYTICS (32% Width) */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', minWidth: 0 }}>
               <RiskPanel risk={analysisResult?.risk} />
               
               {/* WATER CONTEXT PANEL */}
-              <div className="coastx-card" style={{ padding: '24px' }}>
-                <h4 style={{ fontSize: '0.88rem', letterSpacing: '0.06em', color: 'var(--accent-ocean)', textTransform: 'uppercase', fontWeight: 800, marginBottom: '14px' }}>
+              <div className="coastx-card" style={{ padding: '20px 24px' }}>
+                <h4 style={{ fontSize: '0.85rem', letterSpacing: '0.06em', color: 'var(--accent-ocean)', textTransform: 'uppercase', fontWeight: 800, marginBottom: '12px' }}>
                   WATER CONTEXT & OBSERVED PATTERNS
                 </h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.88rem', color: 'var(--text-primary)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f1f5f9', paddingBottom: '6px' }}>
                     <span style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>Person in water:</span>
                     <span style={{ fontWeight: 800, color: personCount > 0 ? '#0284c7' : 'var(--text-muted)' }}>

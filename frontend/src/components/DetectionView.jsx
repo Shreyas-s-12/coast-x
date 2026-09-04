@@ -41,22 +41,57 @@ export default function DetectionView({ data, error }) {
         </div>
       </div>
 
-      {/* Video or Image Display Area */}
-      <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', border: '1px solid var(--border-subtle)', background: '#0f172a', boxShadow: 'var(--shadow-card)' }}>
+      {/* Video or Image Display Area — Enlarged visual container with min-height 520px */}
+      <div style={{ 
+        position: 'relative', 
+        borderRadius: 'var(--radius-lg)', 
+        overflow: 'hidden', 
+        border: '1px solid var(--border-subtle)', 
+        background: '#0f172a', 
+        boxShadow: 'var(--shadow-card)',
+        minHeight: '520px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
         {isVideo ? (
-          <video controls autoPlay loop src={outputUrl} style={{ width: '100%', maxHeight: '520px', objectFit: 'contain', display: 'block' }} />
+          <video 
+            controls 
+            autoPlay 
+            loop 
+            src={outputUrl} 
+            style={{ 
+              width: '100%', 
+              height: 'auto', 
+              minHeight: '520px', 
+              maxHeight: '750px', 
+              objectFit: 'contain', 
+              display: 'block' 
+            }} 
+          />
         ) : (
-          <img src={outputUrl} alt="Annotated Coastal Detection" style={{ width: '100%', maxHeight: '520px', objectFit: 'contain', display: 'block' }} />
+          <img 
+            src={outputUrl} 
+            alt="Annotated Coastal Detection" 
+            style={{ 
+              width: '100%', 
+              height: 'auto', 
+              minHeight: '520px', 
+              maxHeight: '750px', 
+              objectFit: 'contain', 
+              display: 'block' 
+            }} 
+          />
         )}
       </div>
 
-      {/* Detections Detail Badges List */}
+      {/* Detections Detail Badges List — Compact & Scrollable */}
       {data.objects && Array.isArray(data.objects) && data.objects.length > 0 && (
-        <div style={{ marginTop: '20px', background: 'var(--bg-cream)', padding: '16px 20px', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
-          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '10px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
+        <div style={{ marginTop: '18px', background: 'var(--bg-cream)', padding: '14px 18px', borderRadius: 'var(--radius-md)', border: '1px solid #e2e8f0' }}>
+          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-mono)' }}>
             DETECTED OBJECT PREDICTIONS ({data.objects.length})
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', maxHeight: '140px', overflowY: 'auto' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', maxHeight: '110px', overflowY: 'auto', paddingRight: '4px' }}>
             {data.objects.map((obj, idx) => {
               const cls = (obj.class || '').toLowerCase();
               const isPerson = ['person', 'swimmer', 'people'].includes(cls);
@@ -72,7 +107,7 @@ export default function DetectionView({ data, error }) {
                   style={{ 
                     border: `1px solid ${borderColor}`,
                     background: bgColor,
-                    padding: '6px 12px', 
+                    padding: '5px 12px', 
                     borderRadius: '50px', 
                     fontSize: '0.8rem', 
                     color: 'var(--text-navy)',

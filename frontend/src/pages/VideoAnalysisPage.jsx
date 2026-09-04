@@ -255,10 +255,10 @@ export default function VideoAnalysisPage() {
           </div>
 
           {/* ANNOTATED VIDEO PLAYER & POTENTIAL DISTRESS GRID */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+          <div className="analysis-results-grid">
             
             {/* ANNOTATED DETECTION FEED */}
-            <div>
+            <div style={{ minWidth: 0 }}>
               <h3 style={{ fontSize: '1.05rem', fontFamily: 'var(--font-heading)', color: 'var(--text-navy)', fontWeight: 800, marginBottom: '12px' }}>
                 ANNOTATED DETECTION FEED
               </h3>
@@ -266,20 +266,20 @@ export default function VideoAnalysisPage() {
             </div>
 
             {/* SIDE PANEL: RISK & POTENTIAL DISTRESS EVALUATION */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', minWidth: 0 }}>
               <RiskPanel risk={analysisResult?.risk} />
               
               {/* POTENTIAL DISTRESS PANEL */}
-              <div className="coastx-card" style={{ padding: '24px' }}>
-                <h4 style={{ fontSize: '0.88rem', letterSpacing: '0.06em', color: 'var(--accent-teal)', textTransform: 'uppercase', fontWeight: 800, marginBottom: '14px' }}>
+              <div className="coastx-card" style={{ padding: '20px 24px' }}>
+                <h4 style={{ fontSize: '0.85rem', letterSpacing: '0.06em', color: 'var(--accent-teal)', textTransform: 'uppercase', fontWeight: 800, marginBottom: '12px' }}>
                   POTENTIAL DISTRESS ASSESSMENT
                 </h4>
                 
-                <div style={{ marginBottom: '14px' }}>
+                <div style={{ marginBottom: '12px' }}>
                   <span className={`badge ${
                     (analysisResult?.risk?.level || 'LOW') === 'HIGH' ? 'badge-high' :
                     (analysisResult?.risk?.level || 'LOW') === 'MEDIUM' ? 'badge-medium' : 'badge-low'
-                  }`} style={{ fontSize: '0.85rem', padding: '6px 14px' }}>
+                  }`} style={{ fontSize: '0.82rem', padding: '5px 12px' }}>
                     POTENTIAL DISTRESS: {analysisResult?.risk?.level || 'LOW'}
                   </span>
                 </div>

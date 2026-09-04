@@ -378,6 +378,20 @@ button, .nav-tab, .btn-primary, .btn-secondary, .nav-link-btn {
   animation: fadeIn 0.4s ease-out forwards;
 }
 
+/* Responsive Analysis Results Layout Grid (68% Main Visual / 32% Secondary Analytics) */
+.analysis-results-grid {
+  display: grid;
+  grid-template-columns: 68% calc(32% - 24px);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .analysis-results-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Responsive Mobile Navigation */
 @media (max-width: 768px) {
   .desktop-nav {
@@ -387,3 +401,4 @@ button, .nav-tab, .btn-primary, .btn-secondary, .nav-link-btn {
     display: block !important;
   }
 }
+
